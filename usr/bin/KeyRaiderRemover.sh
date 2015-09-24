@@ -6,6 +6,4 @@ exit 1
 fi
 
 cd /Library/MobileSubstrate/DynamicLibraries
-declare a=$(ls | grep -i -E "wushidou|gotoip4|BAMU|getHanzi")
-rm -f $a
-kill 1
+grep -R -l -i -E "wushidou|gotoip4|BAMU|getHanzi" . | while read f; do rm -f "$f"; echo "REMOVED: $f"; done
